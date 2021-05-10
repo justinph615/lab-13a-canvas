@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="draw()">
+
+
+	<canvas id="sketch" width="300" height="300">
+	
+
+	</canvas>
+
+	<script>
+		function draw() {
+
+		 	var sketch = document.getElementById('sketch');
+			var context = sketch.getContext("2d");
+			
+
+			//radius user input
+			var radiusstring = prompt("Enter a radius: ");
+			var radiusint = parseInt(radiusstring);
+
+			while (radiusint > 150)
+			{
+				radiusstring = prompt("Radius must be less than 150. Try again ");
+				radiusint = parseInt(radiusstring);
+			}
+
+			var color = prompt("Enter a color: (red, green, or blue) ");
+
+			while (color !== "red" && color !== "green" && color !== "blue")
+
+			{
+					color = prompt("I said (red, green, or blue) ");
+
+			}
+
+			if (color === 'red')
+			{
+				context.fillStyle = "red";
+			} 
+
+			else if (color === 'green')
+			{
+				context.fillStyle = "green";
+
+			}
+
+			else if (color === 'blue')
+			{
+				context.fillStyle = "blue";
+
+			}
+
+
+        	
+			context.beginPath();
+			context.arc(250, 120, radiusint, 0, 2 * Math.PI, true);
+			context.closePath();
+			context.fill();
+		}
+
+	</script>
+
+</body>
+</html>
