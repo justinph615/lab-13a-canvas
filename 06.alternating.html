@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="draw()">
+
+
+	<canvas id="sketch" width="300" height="300">
+	
+
+	</canvas>
+
+	<script>
+		function draw() {
+
+		 	var sketch = document.getElementById('sketch');
+			var context = sketch.getContext("2d");
+			
+
+			var usertring = prompt("How many pairs do you want? ");
+			var usernum = parseInt(usertring);
+
+			var thismany = usernum * 2 -1;
+
+			for (var i = 0; i <= thismany; i++)
+				{
+					if (i % 2 === 0) //even numbers
+					{	//green squares
+
+						context.fillStyle = "#00ff00";
+						context.fillRect((i * 25), 20, 20, 20);
+
+					}
+					else
+					{
+						context.fillStyle = "#0000ff";
+
+						context.beginPath();
+						context.arc((i * 25 + 10), 30, 40, 0, 2 * Math.PI, true);
+						context.closePath();
+						context.fill();
+
+				// context.arc(x, y, radius, start angle, end angle, clockwise);
+				
+
+					}
+				}
+
+
+
+
+			
+		}
+
+	</script>
+
+</body>
+</html>
